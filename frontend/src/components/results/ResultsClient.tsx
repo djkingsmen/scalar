@@ -145,7 +145,7 @@ function StatTile({
 
       {bar && (
         <div className="mt-3">
-          <div className="h-1.5 rounded-full bg-surface overflow-hidden flex">
+          <div className="h-1.5 rounded-full bg-surface overflow-y-auto flex">
             {total > 0 && (
               <div
                 className="h-full rounded-full"

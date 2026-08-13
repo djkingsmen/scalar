@@ -26,7 +26,7 @@ export function ResponsesTable({
   }
 
   return (
-    <div className="bg-card border border-border rounded-2xl overflow-hidden">
+    <div className="bg-card border border-border rounded-2xl overflow-y-auto">
       <table className="w-full text-sm">
         <thead>
           <tr className="border-b border-border text-left text-ink-soft">

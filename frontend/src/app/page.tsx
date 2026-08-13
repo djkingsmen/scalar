@@ -141,7 +141,7 @@ export default function DashboardPage() {
       </header>
 
       <main className="max-w-6xl mx-auto px-6 py-10">
-        <div className="mb-8 tf-elevated-card rounded-3xl p-7 sm:p-9 relative overflow-hidden">
+        <div className="mb-8 tf-elevated-card rounded-3xl p-7 sm:p-9 relative overflow-y-auto">
           <div className="absolute -top-16 -right-20 w-64 h-64 rounded-full bg-[radial-gradient(circle,color-mix(in_srgb,var(--accent)_24%,transparent)_0%,transparent_68%)]" />
           <div className="absolute -bottom-20 -left-16 w-60 h-60 rounded-full bg-[radial-gradient(circle,color-mix(in_srgb,#35a39b_22%,transparent)_0%,transparent_68%)]" />
           <div className="relative">

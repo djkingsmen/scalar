@@ -316,7 +316,7 @@ export function BuilderClient({ formId }: { formId: number }) {
       </header>
 
       <div className="flex-1 grid grid-cols-[280px_1fr_420px] min-h-0 gap-3 p-3">
-        <aside className="border border-border/70 bg-panel rounded-3xl min-h-0 tf-elevated-card overflow-hidden">
+        <aside className="border border-border/70 bg-panel rounded-3xl min-h-0 tf-elevated-card overflow-y-auto">
           <QuestionList
             questions={questions}
             selectedId={selectedId}

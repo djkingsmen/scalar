@@ -24,7 +24,7 @@ export function QuestionSummaryCard({ summary, accent }: { summary: QuestionSumm
                   <span className="text-sm text-ink truncate pr-2">{label}</span>
                   <span className="text-xs text-ink-soft tabular-nums shrink-0">{count}</span>
                 </div>
-                <div className="h-2 rounded-full bg-surface overflow-hidden">
+                <div className="h-2 rounded-full bg-surface overflow-y-auto">
                   <div
                     className="h-full rounded-full transition-all"
                     style={{ width: `${(count / maxCount) * 100}%`, background: accent }}

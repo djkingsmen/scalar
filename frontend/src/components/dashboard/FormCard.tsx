@@ -45,7 +45,7 @@ export function FormCard({
   const publicUrl = typeof window !== "undefined" ? `${window.location.origin}/f/${form.share_slug}` : "";
 
   return (
-    <div className="group relative tf-elevated-card rounded-3xl p-5 hover:-translate-y-1 transition-all duration-200 flex flex-col overflow-hidden">
+    <div className="group relative tf-elevated-card rounded-3xl p-5 hover:-translate-y-1 transition-all duration-200 flex flex-col overflow-y-auto">
       <div className="absolute -top-10 -right-10 w-28 h-28 rounded-full bg-[radial-gradient(circle,color-mix(in_srgb,var(--accent)_20%,transparent)_0%,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity" />
       <div className="flex items-start justify-between mb-3">
         <Badge tone={form.status === "published" ? "success" : "draft"}>

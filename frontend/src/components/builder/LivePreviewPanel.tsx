@@ -44,7 +44,7 @@ export function LivePreviewPanel({
 
   return (
     <div
-      className="h-full flex flex-col rounded-2xl border border-border overflow-hidden"
+      className="h-full flex flex-col rounded-2xl border border-border overflow-y-auto"
       style={{ ...previewTokens, background: themeBackground || "#ffffff" }}
     >
       <div className="h-1 bg-neutral-100">
