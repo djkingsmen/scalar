@@ -1,0 +1,168 @@
+@import "tailwindcss";
+
+/* Dark mode is opt-in via a `.dark` class (see lib/theme.tsx), scoped to
+   creator-facing surfaces only - the respondent flow keeps its own
+   per-form theme (theme_color / theme_background) regardless of the
+   creator's app-wide preference. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #f5f2ea;
+  --foreground: #201915;
+  --ink: #211813;
+  --ink-soft: #6a5447;
+  --border: #dfd1c3;
+  --surface: #fff8ef;
+  --page: #f6efe4;
+  --panel: #f7f0e6;
+  --card: #fffdfa;
+  --accent: #d85f2a;
+  --danger: #c53831;
+}
+
+.dark {
+  --background: #17120f;
+  --foreground: #f5ebe0;
+  --ink: #f7ece1;
+  --ink-soft: #c8b3a4;
+  --border: #3b2f28;
+  --surface: #241b17;
+  --page: #150f0c;
+  --panel: #1d1512;
+  --card: #221915;
+  --accent: #f08a4b;
+  --danger: #ff7d67;
+  /* The .dark class lives on a div nested inside <body>, not on <body>/<html>
+     itself (dark mode is scoped away from the public respondent flow - see
+     lib/theme.ts) - so `body { color: var(--foreground) }` never repaints.
+     Setting color here explicitly means anything under this wrapper that
+     doesn't set its own text color class (a bare <textarea>/<input>, say)
+     still inherits the correct dark-scoped foreground instead of falling
+     through to <body>'s light one. */
+  color: var(--foreground);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-border: var(--border);
+  --color-surface: var(--surface);
+  --color-page: var(--page);
+  --color-panel: var(--panel);
+  --color-card: var(--card);
+  --color-danger: var(--danger);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background:
+    radial-gradient(circle at 12% 8%, color-mix(in srgb, var(--accent) 20%, transparent) 0%, transparent 45%),
+    radial-gradient(circle at 88% 92%, color-mix(in srgb, #35a39b 22%, transparent) 0%, transparent 50%),
+    linear-gradient(180deg, var(--page) 0%, var(--background) 100%);
+  color: var(--foreground);
+  font-family: var(--font-sans), "Avenir Next", "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.tf-theme-transition,
+.tf-theme-transition * {
+  transition: background-color 0.16s ease, border-color 0.16s ease, color 0.16s ease, box-shadow 0.2s ease;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--tf-accent, #0d0d0d) 25%, transparent);
+}
+
+/* Typeform-style underline text input used throughout the respondent flow */
+.tf-underline-input {
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid color-mix(in srgb, var(--border) 88%, transparent);
+  background: transparent;
+  outline: none;
+  font-size: clamp(1.25rem, 4vw, 1.75rem);
+  padding: 0.65rem 0.25rem;
+  transition: border-color 0.2s ease;
+  color: var(--ink);
+}
+
+.tf-underline-input:focus {
+  border-bottom-color: var(--tf-accent, #0d0d0d);
+}
+
+.tf-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.tf-scrollbar::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--ink-soft) 45%, transparent);
+  border-radius: 999px;
+}
+
+.tf-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@keyframes tf-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.tf-fade-in {
+  animation: tf-fade-in 0.2s ease both;
+}
+
+@keyframes tf-rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.tf-elevated-card {
+  border: 1px solid color-mix(in srgb, var(--border) 88%, transparent);
+  background: linear-gradient(
+    160deg,
+    color-mix(in srgb, var(--card) 92%, white 8%) 0%,
+    color-mix(in srgb, var(--card) 96%, transparent) 100%
+  );
+  box-shadow:
+    0 1px 0 color-mix(in srgb, white 75%, transparent),
+    0 14px 34px color-mix(in srgb, #120f0d 8%, transparent);
+}
+
+.dark .tf-elevated-card {
+  box-shadow:
+    0 1px 0 color-mix(in srgb, white 8%, transparent),
+    0 18px 36px color-mix(in srgb, black 52%, transparent);
+}
+
+.tf-surface-glass {
+  background: color-mix(in srgb, var(--card) 86%, transparent);
+  backdrop-filter: blur(10px);
+}
+
+.tf-rise-in {
+  animation: tf-rise-in 0.26s ease both;
+}

@@ -1,0 +1,39 @@
+# python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# virtual environments
+venv/
+.venv/
+env/
+
+# packaging/build
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# test/coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# logs and runtime
+*.log
+
+# environment files
+.env
+.env.*
+
+# local database
+*.sqlite3
+*.db
+
+# os/editor
+.DS_Store
+.vscode/
+.idea/
